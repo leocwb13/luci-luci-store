@@ -9,7 +9,8 @@ export async function GET() {
     return NextResponse.json({ error: "Nao autorizado." }, { status: 401 });
   }
 
-  const settings = await getSettings();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const current = (await getSettings()) as any;
   return NextResponse.json({ settings });
 }
 
