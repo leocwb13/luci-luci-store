@@ -10,8 +10,8 @@ export async function GET() {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const current = (await getSettings()) as any;
-  return NextResponse.json({ settings: current });
+  const settings = (await getSettings()) as any;
+  return NextResponse.json({ settings });
 }
 
 export async function PUT(request: Request) {
@@ -19,7 +19,8 @@ export async function PUT(request: Request) {
     return NextResponse.json({ error: "Nao autorizado." }, { status: 401 });
   }
 
-  const current = await getSettings();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const current = (await getSettings()) as any;
   const body = (await request.json()) as Partial<StoreSettings>;
   const updated: StoreSettings = {
     ...current,
