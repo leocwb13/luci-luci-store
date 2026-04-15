@@ -20,9 +20,9 @@ export function Header({ settings }: { settings: StoreSettings }) {
           LUCI<span>|</span>LUCI
         </Link>
         <nav className="header-nav">
-          <a href="#kits">Kits</a>
-          <a href="#produtos">Produtos</a>
-          <a href="#como-funciona">Como funciona</a>
+          <a href="/#kits">Kits</a>
+          <a href="/#produtos">Produtos</a>
+          <a href="/#como-funciona">Como funciona</a>
         </nav>
         <div className="header-actions">
           <button className="ghost-button mobile-nav-button" type="button" onClick={() => setIsMobileNavOpen((current) => !current)}>

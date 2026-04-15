@@ -48,6 +48,18 @@ export default async function OrderPage({
             ))}
             <div className="summary-box">
               <div className="summary-line summary-line-padded">
+                <span>Subtotal</span>
+                <strong>{formatCurrency(order.subtotalInCents)}</strong>
+              </div>
+              <div className="summary-line summary-line-padded">
+                <span>Frete</span>
+                <strong>
+                  {order.deliveryFeeInCents === 0
+                    ? (order.customer.deliveryMethod === "pickup" ? "Retirada" : "Grátis 🎉")
+                    : formatCurrency(order.deliveryFeeInCents)}
+                </strong>
+              </div>
+              <div className="summary-line summary-total summary-line-padded">
                 <span>Total</span>
                 <strong>{formatCurrency(order.totalInCents)}</strong>
               </div>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Kit } from "@/lib/types";
 import { formatCurrency } from "@/lib/utils";
 
@@ -13,16 +15,18 @@ export function KitsHighlight({ kits }: { kits: Kit[] }) {
       </div>
       <div className="grid-3">
         {kits.map((kit) => (
-          <article className="info-card kit-highlight-card" key={kit.id}>
-            <p className="eyebrow" style={{ color: kit.accent }}>{kit.categoryLabel}</p>
-            <h3>{kit.name}</h3>
-            <p className="muted">{kit.shortDescription}</p>
-            <div className="summary-line">
-              <span>De {formatCurrency(kit.compareAtInCents)}</span>
-              <strong>{formatCurrency(kit.priceInCents)}</strong>
-            </div>
-            <span className="pill">Economia de {formatCurrency(kit.savingsInCents)}</span>
-          </article>
+          <Link href={`/kits/${kit.slug}`} key={kit.id} style={{ textDecoration: "none", color: "inherit" }}>
+            <article className="info-card kit-highlight-card" style={{ cursor: "pointer", height: "100%" }}>
+              <p className="eyebrow" style={{ color: kit.accent }}>{kit.categoryLabel}</p>
+              <h3>{kit.name}</h3>
+              <p className="muted">{kit.shortDescription}</p>
+              <div className="summary-line">
+                <span>De {formatCurrency(kit.compareAtInCents)}</span>
+                <strong>{formatCurrency(kit.priceInCents)}</strong>
+              </div>
+              <span className="pill">Economia de {formatCurrency(kit.savingsInCents)}</span>
+            </article>
+          </Link>
         ))}
       </div>
     </section>

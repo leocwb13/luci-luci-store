@@ -44,7 +44,15 @@ export function buildWhatsAppUrl(settings: StoreSettings, order: Order) {
   });
 
   lines.push("");
-  lines.push(`Total: ${formatCurrency(order.totalInCents)}`);
+  lines.push(`Subtotal: ${formatCurrency(order.subtotalInCents)}`);
+  if (order.deliveryFeeInCents > 0) {
+    lines.push(`Frete: ${formatCurrency(order.deliveryFeeInCents)}`);
+  } else {
+    lines.push(`Frete: Gratis`);
+  }
+  lines.push(`*Total: ${formatCurrency(order.totalInCents)}*`);
+  lines.push(``);
+  lines.push(`Pagamento: ${order.paymentMethod.replace("_", " ")}`);
 
   return `https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(lines.join("\n"))}`;
 }
