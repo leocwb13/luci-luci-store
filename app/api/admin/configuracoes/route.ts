@@ -22,7 +22,8 @@ export async function PUT(request: Request) {
   const body = (await request.json()) as Partial<StoreSettings>;
   const updated: StoreSettings = {
     ...current,
-    ...body
+    ...body,
+    freeShippingThresholdInCents: body.freeShippingThresholdInCents ?? current.freeShippingThresholdInCents ?? 0
   };
   await saveSettings(updated);
   return NextResponse.json({ settings: updated });
