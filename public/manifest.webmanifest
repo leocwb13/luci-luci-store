@@ -1,0 +1,16 @@
+{
+  "name": "Luci Luci",
+  "short_name": "Luci Luci",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0c0c0c",
+  "theme_color": "#8dc63f",
+  "description": "App web de vendas da Luci Luci.",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
