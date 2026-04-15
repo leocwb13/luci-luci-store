@@ -802,12 +802,12 @@ export async function deleteKit(id: string, actorUserId?: string | null) {
   });
 }
 
-export async function getSettings() {
+export async function getSettings(): Promise<StoreSettings> {
   await ensureDatabase();
   const rows = await db.select().from(settingsTable);
   const row = rows[0];
   if (!row) {
-    return settingsSeed;
+    return settingsSeed as unknown as StoreSettings;
   }
   return {
     brandName: row.brandName,
@@ -816,9 +816,10 @@ export async function getSettings() {
     city: row.city,
     heroTitle: row.heroTitle,
     heroDescription: row.heroDescription,
-    neighborhoods: fromJson(row.neighborhoods, []),
-    socialProof: fromJson(row.socialProof, [])
-  } satisfies StoreSettings;
+    freeShippingThresholdInCents: (row as any).freeShippingThresholdInCents ?? 0,
+    neighborhoods: fromJson(row.neighborhoods, []) as StoreSettings["neighborhoods"],
+    socialProof: fromJson(row.socialProof, []) as StoreSettings["socialProof"]
+  };
 }
 
 export async function saveSettings(settings: StoreSettings) {
