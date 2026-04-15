@@ -11,7 +11,7 @@ export async function GET() {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const current = (await getSettings()) as any;
-  return NextResponse.json({ settings });
+  return NextResponse.json({ settings: current });
 }
 
 export async function PUT(request: Request) {
