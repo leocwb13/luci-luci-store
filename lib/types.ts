@@ -151,7 +151,7 @@ export type StoreSettings = {
   city: string;
   heroTitle: string;
   heroDescription: string;
-  freeShippingThresholdInCents: number;
+  freeShippingThresholdInCents?: number;
   neighborhoods: Array<{
     name: string;
     city: string;
