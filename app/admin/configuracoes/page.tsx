@@ -13,7 +13,8 @@ export default async function AdminSettingsPage() {
     redirect("/admin/login");
   }
 
-  const settings = await getSettings();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const settings = (await getSettings()) as any;
 
   return (
     <AdminShell title="Configuracoes da loja">
