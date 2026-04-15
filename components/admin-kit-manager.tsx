@@ -131,7 +131,7 @@ export function AdminKitManager({ initialKits, products }: { initialKits: Kit[];
         <input className="field" placeholder="Descricao curta" value={currentDraft.shortDescription} onChange={(event) => setDraft({ ...currentDraft, shortDescription: event.target.value })} />
         <textarea className="field-textarea" rows={4} placeholder="Descricao" value={currentDraft.description} onChange={(event) => setDraft({ ...currentDraft, description: event.target.value })} />
         <div className="field-group">
-          <input className="field" type="number" placeholder="Preco do kit em centavos" value={currentDraft.priceInCents} onChange={(event) => setDraft({ ...currentDraft, priceInCents: Number(event.target.value) })} />
+          <input className="field" type="number" min={0} step={0.01} placeholder="Preço do kit (R$)" value={currentDraft.priceInCents > 0 ? currentDraft.priceInCents / 100 : ""} onChange={(event) => setDraft({ ...currentDraft, priceInCents: Math.round(parseFloat(event.target.value || "0") * 100) })} />
           <input className="field" placeholder="URL da imagem" value={currentDraft.imageUrl ?? ""} onChange={(event) => setDraft({ ...currentDraft, imageUrl: event.target.value })} />
         </div>
         <div className="field-stack">

@@ -32,7 +32,7 @@ export async function AdminShell({
           <Link href="/admin/pedidos">Pedidos</Link>
           <Link href="/admin/clientes">Clientes</Link>
           {canViewFinance ? <Link href="/admin/financeiro">Financeiro</Link> : null}
-          <Link href="/admin/configuracoes">Configuracoes</Link>
+          <Link href="/admin/configuracoes">Configurações</Link>
         </nav>
         <form action="/api/admin/logout" method="post">
           <button type="submit" className="ghost-button full-width">
