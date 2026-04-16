@@ -36,6 +36,7 @@ export type Product = {
   background: string;
   imageLabel: string[];
   imageUrl?: string | null;
+  images?: string[];
   stock: number;
   minStock: number;
   notes?: string;

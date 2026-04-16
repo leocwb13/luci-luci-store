@@ -22,6 +22,7 @@ type DraftProduct = {
   accent: string;
   background: string;
   imageUrl: string;
+  images: string[];
   notes: string;
 };
 
@@ -43,6 +44,7 @@ const emptyDraft: DraftProduct = {
   accent: "#7c9887",
   background: "linear-gradient(135deg,#edf4ee,#d9e7db)",
   imageUrl: "",
+  images: [],
   notes: ""
 };
 
@@ -71,7 +73,6 @@ export function AdminProductManager({ initialProducts }: { initialProducts: Prod
     setIsSavingBulk(true);
     setMessage("");
 
-    // Só envia produtos que realmente mudaram
     const changed = products.filter((p) => {
       const edit = bulkEdits[p.id];
       return edit && (edit.priceInCents !== (p.priceInCents ?? 0) || edit.stock !== p.stock);
@@ -115,7 +116,7 @@ export function AdminProductManager({ initialProducts }: { initialProducts: Prod
     );
   }
 
-  // ── Upload de imagem ─────────────────────────────────────────
+  // ── Upload de imagem principal (capa) ────────────────────────
   async function uploadImage(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -134,7 +135,37 @@ export function AdminProductManager({ initialProducts }: { initialProducts: Prod
     }
     setDraft((current) => ({ ...current, imageUrl: data.imageUrl ?? "" }));
     setIsUploading(false);
-    setMessage("Imagem enviada com sucesso.");
+    setMessage("Imagem de capa enviada com sucesso.");
+  }
+
+  // ── Upload de imagens adicionais (carrossel) ─────────────────
+  async function uploadExtraImage(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    setIsUploading(true);
+    const formData = new FormData();
+    formData.append("file", file);
+    const response = await fetch("/api/admin/upload", {
+      method: "POST",
+      body: formData
+    });
+    const data = (await response.json()) as { imageUrl?: string; error?: string };
+    if (!response.ok || !data.imageUrl) {
+      setMessage(data.error ?? "Não foi possível enviar a imagem.");
+      setIsUploading(false);
+      return;
+    }
+    setDraft((current) => ({ ...current, images: [...(current.images ?? []), data.imageUrl!] }));
+    setIsUploading(false);
+    setMessage("Imagem adicional enviada.");
+    event.target.value = "";
+  }
+
+  function removeExtraImage(index: number) {
+    setDraft((current) => ({
+      ...current,
+      images: current.images.filter((_, i) => i !== index)
+    }));
   }
 
   // ── Salvar produto individual ────────────────────────────────
@@ -287,11 +318,12 @@ export function AdminProductManager({ initialProducts }: { initialProducts: Prod
           <input className="field" placeholder="URL da imagem (ou envie abaixo)" value={draft.imageUrl} onChange={(event) => setDraft((current) => ({ ...current, imageUrl: event.target.value }))} />
         </div>
 
-        {/* Upload de imagem */}
+        {/* Upload de imagem principal (capa) */}
         <div className="field-stack">
+          <strong style={{ fontSize: "0.88rem" }}>Foto de capa</strong>
           <label className="ghost-button upload-button" style={{ textAlign: "center" }}>
             <input type="file" accept="image/*" hidden onChange={uploadImage} />
-            {isUploading ? "Enviando imagem..." : "📷 Enviar foto do produto"}
+            {isUploading ? "Enviando..." : "📷 Enviar foto de capa"}
           </label>
           {draft.imageUrl ? (
             <div style={{ position: "relative", display: "inline-block" }}>
@@ -302,10 +334,45 @@ export function AdminProductManager({ initialProducts }: { initialProducts: Prod
                 style={{ marginTop: 8, fontSize: "0.8rem" }}
                 onClick={() => setDraft((c) => ({ ...c, imageUrl: "" }))}
               >
-                Remover imagem
+                Remover capa
               </button>
             </div>
           ) : null}
+        </div>
+
+        {/* Upload de imagens adicionais (carrossel) */}
+        <div className="field-stack">
+          <strong style={{ fontSize: "0.88rem" }}>Fotos adicionais (carrossel)</strong>
+          <label className="ghost-button upload-button" style={{ textAlign: "center" }}>
+            <input type="file" accept="image/*" hidden onChange={uploadExtraImage} />
+            {isUploading ? "Enviando..." : "🖼️ Adicionar foto ao carrossel"}
+          </label>
+          {draft.images && draft.images.length > 0 ? (
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 8 }}>
+              {draft.images.map((url, i) => (
+                <div key={url} style={{ position: "relative", display: "inline-block" }}>
+                  <img
+                    className="admin-preview-image small"
+                    src={url}
+                    alt={`Foto ${i + 1}`}
+                    style={{ display: "block" }}
+                  />
+                  <button
+                    className="danger-button"
+                    type="button"
+                    style={{ marginTop: 4, fontSize: "0.75rem", width: "100%" }}
+                    onClick={() => removeExtraImage(i)}
+                  >
+                    Remover
+                  </button>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="muted" style={{ fontSize: "0.8rem" }}>
+              Nenhuma foto adicional. Adicione até 10 fotos para o carrossel.
+            </p>
+          )}
         </div>
 
         <div className="field-group">
@@ -376,6 +443,7 @@ export function AdminProductManager({ initialProducts }: { initialProducts: Prod
                       accent: product.accent,
                       background: product.background,
                       imageUrl: product.imageUrl ?? "",
+                      images: product.images ?? [],
                       notes: product.notes ?? ""
                     })
                   }

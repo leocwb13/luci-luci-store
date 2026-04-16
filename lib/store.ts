@@ -86,6 +86,7 @@ const productsTable = sqliteTable("products", {
   background: text("background").notNull(),
   imageLabel: text("image_label").notNull(),
   imageUrl: text("image_url"),
+  images: text("images"),
   stock: integer("stock").notNull().default(0),
   minStock: integer("min_stock").notNull().default(3),
   notes: text("notes"),
@@ -269,6 +270,7 @@ function mapProduct(row: typeof productsTable.$inferSelect): Product {
     background: row.background,
     imageLabel: fromJson(row.imageLabel, [row.name] as string[]),
     imageUrl: row.imageUrl ?? undefined,
+    images: fromJson((row as Record<string, unknown>).images as string ?? "[]", [] as string[]),
     stock: row.stock,
     minStock: row.minStock,
     notes: row.notes ?? undefined,
@@ -542,6 +544,19 @@ async function createTables() {
   for (const statement of statements) {
     await dbClient.execute(statement);
   }
+
+  // Migrations para bancos existentes (erros são ignorados se a coluna já existir)
+  const migrations = [
+    `ALTER TABLE store_settings ADD COLUMN free_shipping_threshold_in_cents INTEGER NOT NULL DEFAULT 0;`,
+    `ALTER TABLE products ADD COLUMN images TEXT;`
+  ];
+  for (const migration of migrations) {
+    try {
+      await dbClient.execute(migration);
+    } catch {
+      // Coluna já existe — ignorar
+    }
+  }
 }
 
 export async function ensureDatabase() {
@@ -642,6 +657,7 @@ export async function saveProducts(products: Product[]) {
       faq: asJson(product.faq),
       imageLabel: asJson(product.imageLabel),
       imageUrl: product.imageUrl ?? null,
+      images: asJson(product.images ?? []),
       notes: product.notes ?? null,
       minStock: product.minStock ?? 3,
       commercialPitch: product.commercialPitch ?? null,

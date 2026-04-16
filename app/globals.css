@@ -527,6 +527,55 @@ input[type="number"].field::-webkit-outer-spin-button {
   border: 1px solid rgba(255, 255, 255, 0.45);
 }
 
+/* ── Carrossel de imagens ──────────────────────────── */
+.carousel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.85);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: background 0.15s;
+}
+.carousel-btn:hover { background: #fff; }
+.carousel-prev { left: 8px; }
+.carousel-next { right: 8px; }
+.carousel-dots {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(124,152,135,0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s;
+}
+.carousel-dot.active {
+  background: var(--green-dark, #4a7c59);
+}
+
 @media (max-width: 980px) {
   .hero, .admin-layout, .checkout-grid, .checkout-grid-balanced, .product-content-grid {
     grid-template-columns: 1fr;

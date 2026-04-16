@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { Header } from "@/components/header";
 import { ProductAddToCart } from "@/components/product-add-to-cart";
+import { ProductCarousel } from "@/components/product-carousel";
 import { ProductPageView } from "@/components/product-page-view";
 import { getActiveKits, getProductBySlug, getSettings } from "@/lib/store";
 import { formatCurrency } from "@/lib/utils";
@@ -60,13 +61,13 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </div>
 
         <aside className="hero-card hero-side" style={{ background: product.background }}>
-          {product.imageUrl ? (
-            <img className="product-image product-detail-image" src={product.imageUrl} alt={product.name} />
-          ) : (
-            <div className="placeholder-tube product-visual" style={{ borderColor: product.accent }}>
-              {product.imageLabel.map((line) => <span key={line}>{line}</span>)}
-            </div>
-          )}
+          <ProductCarousel
+            images={product.images}
+            imageUrl={product.imageUrl}
+            imageLabel={product.imageLabel}
+            accent={product.accent}
+            name={product.name}
+          />
           {product.commercialPitch ? (
             <div className="info-card" style={{ marginTop: 16 }}>
               <strong>{product.commercialPitch}</strong>
