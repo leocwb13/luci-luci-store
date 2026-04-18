@@ -89,6 +89,50 @@ export default async function HomePage() {
 
       <KitsHighlight kits={kits.filter((kit) => kit.featured).slice(0, 3)} />
 
+      {/* Banners de linha/coleção */}
+      <section className="collection-banners content-section">
+        <a className="collection-banner" href="/?tab=fine#produtos" style={{ background: "linear-gradient(135deg,#f5e9ef,#e8d5dc)" }}>
+          <span className="collection-banner-icon">✨</span>
+          <strong>Pele & Beleza</strong>
+          <p>Cosméticos e encapsulados para pele radiante</p>
+          <span className="collection-banner-cta">Ver produtos →</span>
+        </a>
+        <a className="collection-banner" href="/?tab=vitaminas#produtos" style={{ background: "linear-gradient(135deg,#e8f0eb,#d4e4d8)" }}>
+          <span className="collection-banner-icon">💊</span>
+          <strong>Vitaminas</strong>
+          <p>Suplementação essencial para o dia a dia</p>
+          <span className="collection-banner-cta">Ver produtos →</span>
+        </a>
+        <a className="collection-banner" href="/?tab=vitae#produtos" style={{ background: "linear-gradient(135deg,#e8eef5,#d4dde9)" }}>
+          <span className="collection-banner-icon">🌿</span>
+          <strong>Energia & Imunidade</strong>
+          <p>Reforce suas defesas, ganhe disposição</p>
+          <span className="collection-banner-cta">Ver produtos →</span>
+        </a>
+        <a className="collection-banner" href="/?tab=kits#produtos" style={{ background: "linear-gradient(135deg,#f5f0e8,#e9e0d0)" }}>
+          <span className="collection-banner-icon">🎁</span>
+          <strong>Kits Presente</strong>
+          <p>Combos prontos — perfeitos para presentear</p>
+          <span className="collection-banner-cta">Ver kits →</span>
+        </a>
+      </section>
+
+      {/* Banner aspiracional */}
+      <section className="campaign-banner content-section">
+        <div className="campaign-banner-inner">
+          <p className="campaign-kicker">Luci Luci · Curitiba</p>
+          <h2>Cuidar de você não é luxo.<br />É a melhor decisão do dia.</h2>
+          <p className="campaign-sub">Produtos de qualidade com entrega no mesmo dia. Do catálogo até a sua porta.</p>
+          <a
+            className="primary-button"
+            href={`https://wa.me/${settings.whatsapp}?text=Oi! Quero indicação do produto certo para mim.`}
+            target="_blank"
+          >
+            Quero minha indicação
+          </a>
+        </div>
+      </section>
+
       <Suspense>
         <Catalog products={products} kits={kits} />
       </Suspense>

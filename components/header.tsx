@@ -15,6 +15,9 @@ export function Header({ settings }: { settings: StoreSettings }) {
 
   return (
     <>
+      <div className="announcement-bar">
+        🚚 Frete grátis em compras acima de R$150 · Entrega no mesmo dia em Curitiba e região
+      </div>
       <header className="site-header">
         <Link href="/" className="brand">
           LUCI<span>|</span>LUCI

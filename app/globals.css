@@ -763,6 +763,152 @@ input[type="number"].field::-webkit-outer-spin-button {
   }
 }
 
+/* ── Announcement bar ───────────────────────────────────────── */
+.announcement-bar {
+  background: var(--green-dark, #3a6647);
+  color: #fff;
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+
+/* ── Installment price ──────────────────────────────────────── */
+.installments {
+  display: block;
+  color: var(--green-dark);
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ── Collection banners ─────────────────────────────────────── */
+.collection-banners {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding-top: 0 !important;
+}
+
+.collection-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 28px 24px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.collection-banner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.10);
+}
+
+.collection-banner-icon {
+  font-size: 2rem;
+  margin-bottom: 4px;
+}
+
+.collection-banner strong {
+  font-size: 1.05rem;
+  color: var(--green-dark);
+}
+
+.collection-banner p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.collection-banner-cta {
+  margin-top: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--green-dark);
+}
+
+@media (max-width: 900px) {
+  .collection-banners {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .collection-banners {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .collection-banner {
+    padding: 20px 16px;
+  }
+}
+
+/* ── Campaign banner ────────────────────────────────────────── */
+.campaign-banner {
+  background: linear-gradient(135deg, #2d5a3d 0%, #4a7c59 50%, #3a6647 100%);
+  border-radius: 24px;
+  overflow: hidden;
+  padding: 0 !important;
+  margin: 8px 0;
+}
+
+.campaign-banner-inner {
+  padding: 64px 48px;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.campaign-kicker {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+
+.campaign-banner-inner h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: #fff;
+  line-height: 1.2;
+  max-width: 16ch;
+  margin: 0;
+}
+
+.campaign-sub {
+  color: rgba(255,255,255,0.8);
+  font-size: 1rem;
+  max-width: 440px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.campaign-banner-inner .primary-button {
+  background: #fff;
+  color: var(--green-dark);
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+.campaign-banner-inner .primary-button:hover {
+  background: rgba(255,255,255,0.9);
+}
+
+@media (max-width: 600px) {
+  .campaign-banner-inner {
+    padding: 40px 24px;
+  }
+}
+
 /* ── Footer profissional ─────────────────────────────────────── */
 .site-footer {
   margin-top: 48px;

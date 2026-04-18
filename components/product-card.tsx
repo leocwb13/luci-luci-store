@@ -5,7 +5,7 @@ import type { Route } from "next";
 
 import { trackViewItem } from "@/lib/analytics";
 import { Kit, Product } from "@/lib/types";
-import { formatCurrency } from "@/lib/utils";
+import { formatCurrency, formatInstallments } from "@/lib/utils";
 
 import { useCart } from "./cart-context";
 
@@ -49,6 +49,9 @@ export function ProductCard({ item }: { item: Sellable }) {
           <div>
             <strong>{formatCurrency(price)}</strong>
             <small>{isKit(item) ? `Economia de ${formatCurrency(item.savingsInCents)}` : item.packageLabel}</small>
+            {formatInstallments(price) ? (
+              <small className="installments">{formatInstallments(price)}</small>
+            ) : null}
           </div>
           {!isKit(item) ? (
             <span className={`stock ${item.stock > 0 ? "in-stock" : "out-stock"}`}>

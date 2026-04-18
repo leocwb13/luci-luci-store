@@ -60,3 +60,9 @@ export function buildWhatsAppUrl(settings: StoreSettings, order: Order) {
 export function createOrderId() {
   return `LL${Date.now().toString().slice(-8)}`;
 }
+
+export function formatInstallments(priceInCents: number | null, installments = 3): string | null {
+  if (!priceInCents || priceInCents < 5000) return null; // só mostra acima de R$50
+  const perInstallment = Math.ceil(priceInCents / installments);
+  return `${installments}x de ${formatCurrency(perInstallment)} sem juros`;
+}
