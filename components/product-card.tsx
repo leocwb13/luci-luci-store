@@ -52,7 +52,7 @@ export function ProductCard({ item }: { item: Sellable }) {
           </div>
           {!isKit(item) ? (
             <span className={`stock ${item.stock > 0 ? "in-stock" : "out-stock"}`}>
-              {item.stock > 0 ? `${item.stock} em estoque` : "Indisponivel"}
+              {item.stock > 0 ? "Em estoque" : "Indisponível"}
             </span>
           ) : (
             <span className="stock in-stock">{item.savingsPercent}% off</span>

@@ -9,10 +9,16 @@ export const dynamic = "force-dynamic";
 
 const goals = [
   {
-    icon: "🛡️",
-    label: "Imunidade & Detox",
-    description: "Reforce suas defesas e elimine toxinas",
+    icon: "🌿",
+    label: "Saúde & Detox",
+    description: "Reforce suas defesas e elimine toxinas do seu corpo",
     tab: "vitae"
+  },
+  {
+    icon: "💊",
+    label: "Vitaminas",
+    description: "Suplementação essencial para o dia a dia",
+    tab: "vitaminas"
   },
   {
     icon: "✨",
@@ -21,7 +27,7 @@ const goals = [
     tab: "fine"
   },
   {
-    icon: "💪",
+    icon: "⚡",
     label: "Saúde Masculina",
     description: "Vitalidade, disposição e foco no dia a dia",
     tab: "men"
@@ -122,8 +128,8 @@ export default async function HomePage() {
       {/* Como funciona */}
       <section className="content-section" id="como-funciona">
         <div className="section-heading">
-          <p className="section-kicker">Como funciona</p>
-          <h2>Simples, rápido e direto — do catálogo ao seu endereço</h2>
+          <p className="section-kicker">Sua experiência em primeiro lugar</p>
+          <h2>Simples e sofisticado — do nosso catálogo até o conforto do seu endereço</h2>
         </div>
         <div className="grid-3">
           <div className="info-card">

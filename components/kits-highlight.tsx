@@ -13,7 +13,7 @@ export function KitsHighlight({ kits }: { kits: Kit[] }) {
           Cada kit foi pensado para resolver uma dor clara, elevar o ticket medio e reforcar a percepcao de valor.
         </p>
       </div>
-      <div className="grid-3">
+      <div className="grid-3" style={{ justifyItems: "center" }}>
         {kits.map((kit) => (
           <Link href={`/kits/${kit.slug}`} key={kit.id} style={{ textDecoration: "none", color: "inherit" }}>
             <article className="info-card kit-highlight-card" style={{ cursor: "pointer", height: "100%" }}>

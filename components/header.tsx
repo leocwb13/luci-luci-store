@@ -32,7 +32,10 @@ export function Header({ settings }: { settings: StoreSettings }) {
             WhatsApp
           </a>
           <button className="cart-icon-button" type="button" onClick={openDrawer} aria-label="Abrir carrinho">
-            <span className="cart-icon-glyph">Bag</span>
+            <svg className="cart-icon-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="22" height="22">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
             {itemCount > 0 ? <span className="cart-badge">{itemCount}</span> : null}
           </button>
         </div>

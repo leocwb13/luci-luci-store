@@ -47,11 +47,11 @@ export default async function KitPage({ params }: { params: Promise<{ slug: stri
         </aside>
       </section>
 
-      <section className="content-section product-content-grid">
+      <section className="content-section">
         <div className="panel content-panel">
           <div className="section-heading compact-heading">
             <p className="section-kicker">Itens do kit</p>
-            <h2>O que vem na composicao</h2>
+            <h2>O que vem na composição</h2>
           </div>
           <div className="faq-list">
             {kit.items.map((item) => (
@@ -61,14 +61,7 @@ export default async function KitPage({ params }: { params: Promise<{ slug: stri
               </div>
             ))}
           </div>
-        </div>
-        <div className="panel content-panel">
-          <div className="section-heading compact-heading">
-            <p className="section-kicker">Dica de venda</p>
-            <h2>Como apresentar esse kit</h2>
-          </div>
-          <p className="muted">{kit.salesTip}</p>
-          <span className="pill">{kit.savingsPercent}% de economia real</span>
+          <span className="pill" style={{ marginTop: 12, display: "inline-block" }}>{kit.savingsPercent}% de economia real</span>
         </div>
       </section>
     </div>

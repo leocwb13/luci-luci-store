@@ -10,7 +10,8 @@ import { ProductCard } from "./product-card";
 const tabs = [
   { key: "todos", label: "Todos" },
   { key: "kits", label: "Kits" },
-  { key: "vitae", label: "Imunidade & Detox" },
+  { key: "vitaminas", label: "Vitaminas" },
+  { key: "vitae", label: "Saúde & Detox" },
   { key: "fine", label: "Beleza & Pele" },
   { key: "men", label: "Saúde Masculina" }
 ] as const;
@@ -50,7 +51,7 @@ export function Catalog({ products, kits }: { products: Product[]; kits: Kit[] }
     <section className="catalog-section" id="produtos">
       <div className="section-heading">
         <p className="section-kicker">Catalogo</p>
-        <h2>Produtos individuais e kits montados para vender mais</h2>
+        <h2>Produtos individuais e kits montados para você</h2>
         <p className="muted">
           Busque por dores, beneficios e publicos. O site agora organiza produtos avulsos e combos em uma mesma experiencia.
         </p>

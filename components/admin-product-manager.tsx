@@ -291,7 +291,8 @@ export function AdminProductManager({ initialProducts }: { initialProducts: Prod
         <textarea className="field-textarea" rows={4} placeholder="Descrição completa" value={draft.description} onChange={(event) => setDraft((current) => ({ ...current, description: event.target.value }))} />
         <div className="field-group">
           <select className="field-select" value={draft.category} onChange={(event) => setDraft((current) => ({ ...current, category: event.target.value as Product["category"] }))}>
-            <option value="vitae">Linha Vitae</option>
+            <option value="vitaminas">Vitaminas</option>
+            <option value="vitae">Saúde & Detox</option>
             <option value="fine">Fine & Cosméticos</option>
             <option value="men">The Men</option>
             <option value="tea">Chás Funcionais</option>

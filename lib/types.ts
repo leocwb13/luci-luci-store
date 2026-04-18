@@ -1,4 +1,4 @@
-export type ProductCategory = "vitae" | "fine" | "men" | "tea" | "performance" | "gift" | "oral-care";
+export type ProductCategory = "vitae" | "fine" | "men" | "tea" | "performance" | "gift" | "oral-care" | "vitaminas";
 export type PaymentStatus = "pendente" | "pago" | "cancelado";
 export type OrderStatus = "pedido_recebido" | "em_preparacao" | "enviado" | "entregue" | "cancelado";
 export type SellableType = "product" | "kit";
