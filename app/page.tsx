@@ -10,32 +10,32 @@ export const dynamic = "force-dynamic";
 const goals = [
   {
     icon: "🌿",
-    label: "Saúde & Detox",
-    description: "Reforce suas defesas e elimine toxinas do seu corpo",
+    label: "Energia & Imunidade",
+    description: "Cansada, sem disposição ou adoecendo com frequência? Esses produtos são para você",
     tab: "vitae"
   },
   {
     icon: "💊",
     label: "Vitaminas",
-    description: "Suplementação essencial para o dia a dia",
+    description: "Reponha o que falta e sinta a diferença em poucas semanas",
     tab: "vitaminas"
   },
   {
     icon: "✨",
-    label: "Beleza & Pele",
-    description: "Cosméticos e encapsulados para pele radiante",
+    label: "Pele & Beleza",
+    description: "Pele mais firme, cabelo mais forte e aparência radiante com resultado visível",
     tab: "fine"
   },
   {
     icon: "⚡",
     label: "Saúde Masculina",
-    description: "Vitalidade, disposição e foco no dia a dia",
+    description: "Vitalidade, foco e disposição para os homens da família",
     tab: "men"
   },
   {
     icon: "🎁",
-    label: "Kits & Combos",
-    description: "Combinações prontas para melhores resultados",
+    label: "Kits com Desconto",
+    description: "Combos prontos com economia real — perfeitos para presentear",
     tab: "kits"
   }
 ];
@@ -53,16 +53,16 @@ export default async function HomePage() {
 
       <section className="hero">
         <div className="hero-card hero-copy">
-          <p className="hero-kicker">Curitiba, PR — entrega e retirada</p>
+          <p className="hero-kicker">✦ Entrega hoje em Curitiba e região</p>
           <h1>{settings.heroTitle}</h1>
           <p className="muted hero-body">{settings.heroDescription}</p>
           <div className="hero-actions">
             <a
               className="primary-button"
-              href={`https://wa.me/${settings.whatsapp}?text=Oi! Quero ajuda para escolher o produto certo.`}
+              href={`https://wa.me/${settings.whatsapp}?text=Oi! Quero indicação do produto certo para mim.`}
               target="_blank"
             >
-              Falar no WhatsApp
+              Quero indicação pelo WhatsApp
             </a>
             <a className="ghost-button" href="#produtos">
               Ver catálogo
@@ -71,9 +71,9 @@ export default async function HomePage() {
         </div>
 
         <div className="hero-card hero-side">
-          <p className="section-kicker">Qual é o seu objetivo?</p>
+          <p className="section-kicker">O que você está buscando?</p>
           <p className="muted" style={{ marginTop: 6, marginBottom: 16, fontSize: "0.9rem" }}>
-            Escolha uma categoria e veja os produtos certos para você.
+            Selecione seu objetivo e veja os produtos certos para você.
           </p>
           <div className="goal-grid">
             {goals.map((goal) => (
@@ -98,29 +98,29 @@ export default async function HomePage() {
         <div className="trust-item">
           <span className="trust-icon">🚚</span>
           <div>
-            <strong>Entrega em Curitiba</strong>
-            <p className="muted">Entregamos no mesmo dia ou no dia seguinte na sua região</p>
-          </div>
-        </div>
-        <div className="trust-item">
-          <span className="trust-icon">✅</span>
-          <div>
-            <strong>Produto 100% original</strong>
-            <p className="muted">Somente produtos oficiais da linha Luci Luci com garantia de qualidade</p>
+            <strong>Entrega no mesmo dia</strong>
+            <p className="muted">Pediu até o meio-dia? Chega hoje. Atendemos Curitiba e toda a região metropolitana</p>
           </div>
         </div>
         <div className="trust-item">
           <span className="trust-icon">💬</span>
           <div>
-            <strong>Atendimento pelo WhatsApp</strong>
-            <p className="muted">Tire dúvidas, escolha o produto certo e acompanhe seu pedido</p>
+            <strong>Indicação personalizada</strong>
+            <p className="muted">Não sabe qual produto escolher? Fale com a gente pelo WhatsApp — te indicamos o certo para você</p>
           </div>
         </div>
         <div className="trust-item">
-          <span className="trust-icon">🔒</span>
+          <span className="trust-icon">✅</span>
           <div>
-            <strong>Compra segura</strong>
-            <p className="muted">Pague via Pix, cartão ou dinheiro com total tranquilidade</p>
+            <strong>Resultado garantido</strong>
+            <p className="muted">Produtos oficiais da linha Luci Luci, com clientes que voltam todo mês porque sentem diferença real</p>
+          </div>
+        </div>
+        <div className="trust-item">
+          <span className="trust-icon">🎁</span>
+          <div>
+            <strong>Presente que impressiona</strong>
+            <p className="muted">Kits embalados e prontos para presentear — entregamos diretamente para quem você ama</p>
           </div>
         </div>
       </section>
@@ -128,21 +128,21 @@ export default async function HomePage() {
       {/* Como funciona */}
       <section className="content-section" id="como-funciona">
         <div className="section-heading">
-          <p className="section-kicker">Sua experiência em primeiro lugar</p>
-          <h2>Simples e sofisticado — do nosso catálogo até o conforto do seu endereço</h2>
+          <p className="section-kicker">Simples assim</p>
+          <h2>Do produto certo para você até a sua porta — tudo no mesmo dia</h2>
         </div>
         <div className="grid-3">
           <div className="info-card">
-            <strong>1. Escolha pelo seu objetivo</strong>
-            <p className="muted">Produtos e kits organizados por categoria para você decidir com mais facilidade e segurança.</p>
+            <strong>1. Fale com a gente ou escolha aqui</strong>
+            <p className="muted">Não sabe por onde começar? Manda uma mensagem pelo WhatsApp e te indicamos o produto ideal para o seu objetivo.</p>
           </div>
           <div className="info-card">
-            <strong>2. Monte seu carrinho</strong>
-            <p className="muted">Adicione produtos, revise quantidades e confira o total antes de finalizar — tudo em poucos cliques.</p>
+            <strong>2. Finalize do jeito que preferir</strong>
+            <p className="muted">Pague por Pix, cartão ou dinheiro. Sem cadastro complicado — seu pedido é confirmado em minutos.</p>
           </div>
           <div className="info-card">
-            <strong>3. Receba em casa ou retire</strong>
-            <p className="muted">Entrega em Curitiba ou retirada no local. Seu pedido é confirmado direto pelo WhatsApp.</p>
+            <strong>3. Receba hoje em casa</strong>
+            <p className="muted">Entregamos no mesmo dia na maioria dos bairros de Curitiba e região. Ou retire pessoalmente, se preferir.</p>
           </div>
         </div>
       </section>
@@ -152,7 +152,7 @@ export default async function HomePage() {
         <div className="footer-inner">
           <div className="footer-brand">
             <span className="brand">{settings.brandName.split(" ").map((w, i) => i === 0 ? <span key={i}>{w} </span> : <span key={i} style={{ color: "var(--green-dark)" }}>{w}</span>)}</span>
-            <p className="muted">Saúde e beleza com qualidade para Curitiba e região.</p>
+            <p className="muted">Suplementos e cosméticos com entrega no mesmo dia para Curitiba e região.</p>
           </div>
           <div className="footer-links">
             <a href="#produtos">Catálogo</a>
@@ -169,7 +169,7 @@ export default async function HomePage() {
       {/* Botão flutuante WhatsApp */}
       <a
         className="whatsapp-float"
-        href={`https://wa.me/${settings.whatsapp}?text=Oi! Vi o site e quero saber mais sobre os produtos.`}
+        href={`https://wa.me/${settings.whatsapp}?text=Oi! Vi o site da Luci Luci e quero saber qual produto é certo para mim.`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Falar no WhatsApp"

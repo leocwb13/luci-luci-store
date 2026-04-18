@@ -8,9 +8,9 @@ export function KitsHighlight({ kits }: { kits: Kit[] }) {
     <section className="content-section" id="kits">
       <div className="section-heading">
         <p className="section-kicker">Kits em destaque</p>
-        <h2>Combos montados para facilitar a escolha e aumentar conversao</h2>
+        <h2>Combos que as clientes mais pedem — com desconto real</h2>
         <p className="muted">
-          Cada kit foi pensado para resolver uma dor clara, elevar o ticket medio e reforcar a percepcao de valor.
+          Cada kit reúne os produtos mais pedidos para um objetivo específico. Mais praticidade, mais resultado, menos gasto.
         </p>
       </div>
       <div className="grid-3" style={{ justifyItems: "center" }}>

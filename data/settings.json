@@ -3,8 +3,8 @@
   "whatsapp": "5541999999999",
   "instagram": "https://instagram.com/luciluci",
   "city": "Curitiba, PR",
-  "heroTitle": "Cuide-se com o melhor da natureza",
-  "heroDescription": "Suplementos e cosméticos de alta performance para uma vida mais saudável, bonita e vibrante. Entrega em Curitiba ou retirada no local.",
+  "heroTitle": "Saúde e beleza que chegam até você — no mesmo dia",
+  "heroDescription": "Suplementos, vitaminas e cosméticos selecionados para mulheres que cuidam de si e da família. Atendimento personalizado e entrega no mesmo dia em Curitiba e região.",
   "freeShippingThresholdInCents": 15000,
   "neighborhoods": [
     { "name": "Centro", "city": "Curitiba", "feeInCents": 2000 },
@@ -69,18 +69,18 @@
   "socialProof": [
     {
       "name": "Ana C.",
-      "city": "Curitiba, PR",
-      "quote": "O Detox Immunity mudou minha rotina. Sinto muito mais energia e minha pele melhorou bastante em 30 dias."
+      "city": "Água Verde, Curitiba",
+      "quote": "Em 30 dias senti diferença real — mais energia, pele melhor e sem aquela sensação de cansaço o tempo todo. Nunca mais fico sem."
     },
     {
       "name": "Marina S.",
-      "city": "Curitiba, PR",
-      "quote": "Entrega super rapida, chegou no mesmo dia. O Omega 3 e incrivel, recomendo demais."
+      "city": "Batel, Curitiba",
+      "quote": "Pedi de manhã e chegou à tarde. Atendimento incrível, me explicaram exatamente o que eu precisava. Recomendo para todas as amigas."
     },
     {
-      "name": "Patricia R.",
-      "city": "Curitiba, PR",
-      "quote": "Virei revendedora e ja estou lucrando. Produtos de qualidade e suporte excelente."
+      "name": "Patrícia R.",
+      "city": "Portão, Curitiba",
+      "quote": "Compro para mim e para minha mãe há meses. Qualidade garantida, entrega confiável e preço justo. Não troco por nada."
     }
   ]
 }

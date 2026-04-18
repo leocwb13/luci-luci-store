@@ -50,10 +50,10 @@ export function Catalog({ products, kits }: { products: Product[]; kits: Kit[] }
   return (
     <section className="catalog-section" id="produtos">
       <div className="section-heading">
-        <p className="section-kicker">Catalogo</p>
-        <h2>Produtos individuais e kits montados para você</h2>
+        <p className="section-kicker">Catálogo completo</p>
+        <h2>Encontre o produto certo para o seu objetivo</h2>
         <p className="muted">
-          Busque por dores, beneficios e publicos. O site agora organiza produtos avulsos e combos em uma mesma experiencia.
+          Filtre por categoria, pesquise por nome ou benefício. Todos os produtos entregues no mesmo dia em Curitiba e região.
         </p>
       </div>
 
@@ -76,8 +76,8 @@ export function Catalog({ products, kits }: { products: Product[]; kits: Kit[] }
       {filteredKits.length > 0 ? (
         <div className="content-section" id="kits">
           <div className="section-heading compact-heading">
-            <p className="section-kicker">Kits</p>
-            <h2>Combos para aumentar ticket medio e facilitar a decisao</h2>
+            <p className="section-kicker">Kits com desconto</p>
+            <h2>Combos prontos — mais resultado, menos gasto</h2>
           </div>
           <div className="product-grid">
             {filteredKits.map((kit) => (
@@ -90,8 +90,8 @@ export function Catalog({ products, kits }: { products: Product[]; kits: Kit[] }
       {filteredProducts.length > 0 ? (
         <div className="content-section">
           <div className="section-heading compact-heading">
-            <p className="section-kicker">Produtos</p>
-            <h2>Linhas e tratamentos avulsos</h2>
+            <p className="section-kicker">Produtos individuais</p>
+            <h2>Escolha o que você precisa agora</h2>
           </div>
           <div className="product-grid">
             {filteredProducts.map((product) => (
