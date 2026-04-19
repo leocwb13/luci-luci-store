@@ -68,11 +68,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             accent={product.accent}
             name={product.name}
           />
-          {product.commercialPitch ? (
-            <div className="info-card" style={{ marginTop: 16 }}>
-              <strong>{product.commercialPitch}</strong>
-            </div>
-          ) : null}
         </aside>
       </section >
 
